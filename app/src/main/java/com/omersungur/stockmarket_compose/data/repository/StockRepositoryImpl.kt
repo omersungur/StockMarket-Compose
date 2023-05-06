@@ -1,6 +1,7 @@
 package com.omersungur.stockmarket_compose.data.repository
 
 import com.omersungur.stockmarket_compose.data.csv.CSVParser
+import com.omersungur.stockmarket_compose.data.local.StockDao
 import com.omersungur.stockmarket_compose.data.local.StockDatabase
 import com.omersungur.stockmarket_compose.data.mapper.toCompanyInfo
 import com.omersungur.stockmarket_compose.data.mapper.toCompanyList
@@ -21,7 +22,7 @@ import javax.inject.Singleton
 @Singleton
 class StockRepositoryImpl @Inject constructor(
     private val stockApi: StockAPI,
-    private val stockDb: StockDatabase,
+    stockDb: StockDatabase,
     private val companyListParser: CSVParser<CompanyList>,
     private val intradayInfoParser: CSVParser<IntradayInfo>,
 ) : StockRepository {
